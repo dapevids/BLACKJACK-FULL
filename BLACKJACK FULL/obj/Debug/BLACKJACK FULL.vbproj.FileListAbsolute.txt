@@ -1,0 +1,12 @@
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\bin\Debug\BLACKJACK FULL.exe.config
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\bin\Debug\BLACKJACK FULL.exe
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\bin\Debug\BLACKJACK FULL.pdb
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\bin\Debug\BLACKJACK FULL.xml
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.vbproj.AssemblyReference.cache
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK_FULL.Form1.resources
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK_FULL.Resources.resources
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.vbproj.GenerateResource.cache
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.vbproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.exe
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.xml
+C:\Users\david\source\repos\BLACKJACK FULL\BLACKJACK FULL\obj\Debug\BLACKJACK FULL.pdb
