@@ -58,11 +58,10 @@ Partial Class Form1
         Me.p1Card = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.pBalance = New System.Windows.Forms.TextBox()
-        Me.pBet1 = New System.Windows.Forms.Button()
-        Me.pBet5 = New System.Windows.Forms.Button()
-        Me.pBet25 = New System.Windows.Forms.Button()
         Me.pBet50 = New System.Windows.Forms.Button()
         Me.pBet100 = New System.Windows.Forms.Button()
+        Me.pBet500 = New System.Windows.Forms.Button()
+        Me.pBet1000 = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.pBet = New System.Windows.Forms.TextBox()
         Me.pResetBet = New System.Windows.Forms.Button()
@@ -340,50 +339,41 @@ Partial Class Form1
         Me.pBalance.Size = New System.Drawing.Size(100, 22)
         Me.pBalance.TabIndex = 39
         '
-        'pBet1
-        '
-        Me.pBet1.Location = New System.Drawing.Point(460, 365)
-        Me.pBet1.Name = "pBet1"
-        Me.pBet1.Size = New System.Drawing.Size(47, 23)
-        Me.pBet1.TabIndex = 41
-        Me.pBet1.Text = "1"
-        Me.pBet1.UseVisualStyleBackColor = True
-        '
-        'pBet5
-        '
-        Me.pBet5.Location = New System.Drawing.Point(531, 365)
-        Me.pBet5.Name = "pBet5"
-        Me.pBet5.Size = New System.Drawing.Size(47, 23)
-        Me.pBet5.TabIndex = 42
-        Me.pBet5.Text = "5"
-        Me.pBet5.UseVisualStyleBackColor = True
-        '
-        'pBet25
-        '
-        Me.pBet25.Location = New System.Drawing.Point(594, 365)
-        Me.pBet25.Name = "pBet25"
-        Me.pBet25.Size = New System.Drawing.Size(47, 23)
-        Me.pBet25.TabIndex = 43
-        Me.pBet25.Text = "25"
-        Me.pBet25.UseVisualStyleBackColor = True
-        '
         'pBet50
         '
-        Me.pBet50.Location = New System.Drawing.Point(658, 365)
+        Me.pBet50.Location = New System.Drawing.Point(463, 365)
         Me.pBet50.Name = "pBet50"
-        Me.pBet50.Size = New System.Drawing.Size(47, 23)
-        Me.pBet50.TabIndex = 44
+        Me.pBet50.Size = New System.Drawing.Size(65, 23)
+        Me.pBet50.TabIndex = 42
         Me.pBet50.Text = "50"
         Me.pBet50.UseVisualStyleBackColor = True
         '
         'pBet100
         '
-        Me.pBet100.Location = New System.Drawing.Point(724, 365)
+        Me.pBet100.Location = New System.Drawing.Point(544, 365)
         Me.pBet100.Name = "pBet100"
-        Me.pBet100.Size = New System.Drawing.Size(47, 23)
-        Me.pBet100.TabIndex = 45
+        Me.pBet100.Size = New System.Drawing.Size(64, 23)
+        Me.pBet100.TabIndex = 43
         Me.pBet100.Text = "100"
         Me.pBet100.UseVisualStyleBackColor = True
+        '
+        'pBet500
+        '
+        Me.pBet500.Location = New System.Drawing.Point(625, 365)
+        Me.pBet500.Name = "pBet500"
+        Me.pBet500.Size = New System.Drawing.Size(64, 23)
+        Me.pBet500.TabIndex = 44
+        Me.pBet500.Text = "500"
+        Me.pBet500.UseVisualStyleBackColor = True
+        '
+        'pBet1000
+        '
+        Me.pBet1000.Location = New System.Drawing.Point(707, 365)
+        Me.pBet1000.Name = "pBet1000"
+        Me.pBet1000.Size = New System.Drawing.Size(64, 23)
+        Me.pBet1000.TabIndex = 45
+        Me.pBet1000.Text = "1000"
+        Me.pBet1000.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -436,11 +426,10 @@ Partial Class Form1
         Me.Controls.Add(Me.pResetBet)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.pBet)
+        Me.Controls.Add(Me.pBet1000)
+        Me.Controls.Add(Me.pBet500)
         Me.Controls.Add(Me.pBet100)
         Me.Controls.Add(Me.pBet50)
-        Me.Controls.Add(Me.pBet25)
-        Me.Controls.Add(Me.pBet5)
-        Me.Controls.Add(Me.pBet1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.pBalance)
         Me.Controls.Add(Me.p6Card)
@@ -520,11 +509,10 @@ Partial Class Form1
     Friend WithEvents p1Card As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents pBalance As TextBox
-    Friend WithEvents pBet1 As Button
-    Friend WithEvents pBet5 As Button
-    Friend WithEvents pBet25 As Button
     Friend WithEvents pBet50 As Button
     Friend WithEvents pBet100 As Button
+    Friend WithEvents pBet500 As Button
+    Friend WithEvents pBet1000 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents pBet As TextBox
     Friend WithEvents pResetBet As Button
