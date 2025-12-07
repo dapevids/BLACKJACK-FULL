@@ -151,8 +151,8 @@ Public Class Form1
                 balance += bet * 2
                 pBalance.Text = balance
                 pWin.Text = bet * 2
-                MessageBox.Show("you win")
                 gameover = 1
+                MessageBox.Show("you win")
             End If
         End If
     End Sub
@@ -227,14 +227,17 @@ Public Class Form1
 
                 End If
                 If totaldealercard > 21 Then
+                    balance += bet * 2
+                    pBalance.Text = balance
+                    pWin.Text = bet * 2
                     gameover = 1
                     MessageBox.Show("you win")
                 ElseIf totaldealercard <= 21 Then
                     If totalplayercard > totaldealercard Then
                         balance += bet * 2
                         pBalance.Text = balance
-                        gameover = 1
                         pWin.Text = bet * 2
+                        gameover = 1
                         MessageBox.Show("you win")
                     Else
                         gameover = 1
