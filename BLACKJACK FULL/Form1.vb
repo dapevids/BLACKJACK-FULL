@@ -1,5 +1,7 @@
 ﻿Imports System.Deployment.Application
 Imports System.Runtime.InteropServices.WindowsRuntime
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class Form1
     Public player1 As Double
@@ -34,10 +36,20 @@ Public Class Form1
     Public CurrentCardName As String
     Public d2CardName As String
 
+    Public bet As Integer = 0
+    Public balance As Integer = 1000
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        pBalance.Text = balance
+        pBet.Text = 0
+        pWin.Text = 0
+    End Sub
 
     Private Sub start_Click(sender As Object, e As EventArgs) Handles start.Click
         If startcheck = 1 Then
             MessageBox.Show("you already started")
+        ElseIf bet = 0 Then
+            MessageBox.Show("bet is 0")
         ElseIf startcheck = 0 Then
             PulledCrardIndex = 0
             CurrentCardValue = 0
@@ -45,6 +57,9 @@ Public Class Form1
             d2CardName = ""
             create_a_deck()
             shuffle_deck()
+
+            balance -= bet
+            pBalance.Text = balance
 
             player1 = pullcard()
             p1.Text = CurrentCardValue
@@ -133,6 +148,9 @@ Public Class Form1
                 MessageBox.Show("you lose")
                 gameover = 1
             ElseIf totalplayercard = 21 Then
+                balance += bet * 2
+                pBalance.Text = balance
+                pWin.Text = bet * 2
                 MessageBox.Show("you win")
                 gameover = 1
             End If
@@ -213,7 +231,10 @@ Public Class Form1
                     MessageBox.Show("you win")
                 ElseIf totaldealercard <= 21 Then
                     If totalplayercard > totaldealercard Then
+                        balance += bet * 2
+                        pBalance.Text = balance
                         gameover = 1
+                        pWin.Text = bet * 2
                         MessageBox.Show("you win")
                     Else
                         gameover = 1
@@ -290,6 +311,9 @@ Public Class Form1
 
         d2CardName = ""
 
+        bet = 0
+        pBet.Text = 0
+        pWin.Text = 0
 
     End Sub
 
@@ -370,4 +394,65 @@ Public Class Form1
         End If
         Return 0
     End Function
+
+    Private Sub pBet1_Click(sender As Object, e As EventArgs) Handles pBet1.Click
+        Dim playerBalance As Integer = balance
+        playerBalance = balance - bet - 1
+        If playerBalance >= 0 Then
+            bet += 1
+            pBet.Text = bet
+        Else
+            MessageBox.Show("insufficient balance")
+        End If
+    End Sub
+
+    Private Sub pBet5_Click(sender As Object, e As EventArgs) Handles pBet5.Click
+        Dim playerBalance As Integer = balance
+        playerBalance = balance - bet - 5
+        If playerBalance >= 0 Then
+            bet += 5
+            pBet.Text = bet
+        Else
+            MessageBox.Show("insufficient balance")
+        End If
+    End Sub
+
+    Private Sub pBet25_Click(sender As Object, e As EventArgs) Handles pBet25.Click
+        Dim playerBalance As Integer = balance
+        playerBalance = balance - bet - 25
+        If playerBalance >= 0 Then
+            bet += 25
+            pBet.Text = bet
+        Else
+            MessageBox.Show("insufficient balance")
+        End If
+    End Sub
+
+    Private Sub pBet50_Click(sender As Object, e As EventArgs) Handles pBet50.Click
+        Dim playerBalance As Integer = balance
+        playerBalance = balance - bet - 50
+        If playerBalance >= 0 Then
+            bet += 50
+            pBet.Text = bet
+        Else
+            MessageBox.Show("insufficient balance")
+        End If
+    End Sub
+
+    Private Sub pBet100_Click(sender As Object, e As EventArgs) Handles pBet100.Click
+        Dim playerBalance As Integer = balance
+        playerBalance = balance - bet - 100
+        If playerBalance >= 0 Then
+            bet += 100
+            pBet.Text = bet
+        Else
+            MessageBox.Show("insufficient balance")
+        End If
+    End Sub
+
+    Private Sub pResetBet_Click(sender As Object, e As EventArgs) Handles pResetBet.Click
+        bet = 0
+        pBet.Text = bet
+    End Sub
+
 End Class
