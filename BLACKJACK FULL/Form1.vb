@@ -1,29 +1,32 @@
 ﻿Imports System.Deployment.Application
+Imports System.Globalization
 Imports System.Runtime.InteropServices.WindowsRuntime
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 
 Public Class Form1
-    Public player1 As Double
-    Public player2 As Double
-    Public player3 As Double
-    Public player4 As Double
-    Public player5 As Double
-    Public player6 As Double
+    Public player1 As Integer
+    Public player2 As Integer
+    Public player3 As Integer
+    Public player4 As Integer
+    Public player5 As Integer
+    Public player6 As Integer
 
-    Public dealer1 As Double
-    Public dealer2 As Double
-    Public dealer3 As Double
-    Public dealer4 As Double
-    Public dealer5 As Double
-    Public dealer6 As Double
+    Public dealer1 As Integer
+    Public dealer2 As Integer
+    Public dealer3 As Integer
+    Public dealer4 As Integer
+    Public dealer5 As Integer
+    Public dealer6 As Integer
 
-    Public totalplayercard As Double
-    Public totaldealercard As Double
+    Public totalplayercard As Integer
+    Public totaldealercard As Integer
 
-    Public loopcheck As Double
-    Public startcheck As Double
-    Public hitcheck As Double
-    Public standcheck As Double
-    Public gameover As Double
+    Public loopcheck As Integer
+    Public startcheck As Integer
+    Public hitcheck As Integer
+    Public standcheck As Integer
+    Public gameover As Integer
 
     Public deck(51) As String
     Public ShuffledDeck(51) As String
@@ -34,17 +37,37 @@ Public Class Form1
     Public CurrentCardName As String
     Public d2CardName As String
 
+    Public CurrentBet As Integer = 0
+    Public balance As Integer = 10000
+    Public balanceBeforeBetting As Integer = 0
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        pBalance.Text = balance
+        balanceBeforeBetting = balance
+        pBet.Text = 0
+        pWin.Text = 0
+    End Sub
 
     Private Sub start_Click(sender As Object, e As EventArgs) Handles start.Click
         If startcheck = 1 Then
             MessageBox.Show("you already started")
+        ElseIf CurrentBet = 0 Then
+            MessageBox.Show("Place a bet first using the bet buttons.")
         ElseIf startcheck = 0 Then
+            pBet50.Enabled = False
+            pBet100.Enabled = False
+            pBet500.Enabled = False
+            pBet1000.Enabled = False
+            pResetBet.Enabled = False
+
             PulledCrardIndex = 0
             CurrentCardValue = 0
             CurrentCardName = ""
             d2CardName = ""
             create_a_deck()
             shuffle_deck()
+
+            balanceBeforeBetting = balance
 
             player1 = pullcard()
             p1.Text = CurrentCardValue
@@ -133,8 +156,11 @@ Public Class Form1
                 MessageBox.Show("you lose")
                 gameover = 1
             ElseIf totalplayercard = 21 Then
-                MessageBox.Show("you win")
+                balance += CurrentBet * 2
+                pBalance.Text = balance
+                pWin.Text = CurrentBet * 2
                 gameover = 1
+                MessageBox.Show("you win")
             End If
         End If
     End Sub
@@ -209,10 +235,16 @@ Public Class Form1
 
                 End If
                 If totaldealercard > 21 Then
+                    balance += CurrentBet * 2
+                    pBalance.Text = balance
+                    pWin.Text = CurrentBet * 2
                     gameover = 1
                     MessageBox.Show("you win")
                 ElseIf totaldealercard <= 21 Then
                     If totalplayercard > totaldealercard Then
+                        balance += CurrentBet * 2
+                        pBalance.Text = balance
+                        pWin.Text = CurrentBet * 2
                         gameover = 1
                         MessageBox.Show("you win")
                     Else
@@ -231,6 +263,12 @@ Public Class Form1
         deck = New String(51) {}
         ShuffledDeck = New String(51) {}
         ShuffledDeckValues = New Integer(51) {}
+
+        pBet50.Enabled = True
+        pBet100.Enabled = True
+        pBet500.Enabled = True
+        pBet1000.Enabled = True
+        pResetBet.Enabled = True
 
         player1 = 0
         player2 = 0
@@ -290,10 +328,14 @@ Public Class Form1
 
         d2CardName = ""
 
+        CurrentBet = 0
+        pBet.Text = 0
+        pWin.Text = 0
+        balanceBeforeBetting = 0
 
     End Sub
 
-    Function pullcard() As Double
+    Function pullcard() As Integer
         CurrentCardValue = ShuffledDeckValues(PulledCrardIndex)
         CurrentCardName = ShuffledDeck(PulledCrardIndex)
         PulledCrardIndex += 1
@@ -370,4 +412,40 @@ Public Class Form1
         End If
         Return 0
     End Function
+
+    Private Sub MoveAmount(Amount As Integer)
+        CurrentBet = Integer.Parse(pBet.Text, NumberStyles.Integer)
+        balance = Integer.Parse(pBalance.Text, NumberStyles.Integer)
+
+        If balance - Amount >= 0 Then
+            balance -= Amount
+            CurrentBet += Amount
+            pBet.Text = CurrentBet
+            pBalance.Text = balance
+        Else
+            MessageBox.Show("not enough funds")
+        End If
+    End Sub
+
+    Private Sub pBet50_Click(sender As Object, e As EventArgs) Handles pBet50.Click
+        MoveAmount(50)
+    End Sub
+    Private Sub pBet100_Click(sender As Object, e As EventArgs) Handles pBet100.Click
+        MoveAmount(100)
+    End Sub
+
+    Private Sub pBet500_Click(sender As Object, e As EventArgs) Handles pBet500.Click
+        MoveAmount(500)
+    End Sub
+
+    Private Sub pBet1000_Click(sender As Object, e As EventArgs) Handles pBet1000.Click
+        MoveAmount(1000)
+    End Sub
+
+    Private Sub pResetBet_Click(sender As Object, e As EventArgs) Handles pResetBet.Click
+        CurrentBet = 0
+        pBet.Text = CurrentBet
+        pBalance.Text = balanceBeforeBetting
+    End Sub
+
 End Class

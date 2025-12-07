@@ -56,11 +56,22 @@ Partial Class Form1
         Me.p3Card = New System.Windows.Forms.TextBox()
         Me.p2Card = New System.Windows.Forms.TextBox()
         Me.p1Card = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.pBalance = New System.Windows.Forms.TextBox()
+        Me.pBet50 = New System.Windows.Forms.Button()
+        Me.pBet100 = New System.Windows.Forms.Button()
+        Me.pBet500 = New System.Windows.Forms.Button()
+        Me.pBet1000 = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.pBet = New System.Windows.Forms.TextBox()
+        Me.pResetBet = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.pWin = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'start
         '
-        Me.start.Location = New System.Drawing.Point(85, 366)
+        Me.start.Location = New System.Drawing.Point(32, 365)
         Me.start.Name = "start"
         Me.start.Size = New System.Drawing.Size(75, 23)
         Me.start.TabIndex = 0
@@ -69,7 +80,7 @@ Partial Class Form1
         '
         'hit
         '
-        Me.hit.Location = New System.Drawing.Point(183, 366)
+        Me.hit.Location = New System.Drawing.Point(130, 365)
         Me.hit.Name = "hit"
         Me.hit.Size = New System.Drawing.Size(75, 23)
         Me.hit.TabIndex = 1
@@ -78,7 +89,7 @@ Partial Class Form1
         '
         'stand
         '
-        Me.stand.Location = New System.Drawing.Point(285, 366)
+        Me.stand.Location = New System.Drawing.Point(232, 365)
         Me.stand.Name = "stand"
         Me.stand.Size = New System.Drawing.Size(75, 23)
         Me.stand.TabIndex = 2
@@ -87,7 +98,7 @@ Partial Class Form1
         '
         'reset
         '
-        Me.reset.Location = New System.Drawing.Point(379, 365)
+        Me.reset.Location = New System.Drawing.Point(330, 365)
         Me.reset.Name = "reset"
         Me.reset.Size = New System.Drawing.Size(75, 23)
         Me.reset.TabIndex = 3
@@ -183,7 +194,7 @@ Partial Class Form1
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(36, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(105, 20)
+        Me.Label1.Size = New System.Drawing.Size(84, 16)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Dealer Hand"
         '
@@ -208,18 +219,18 @@ Partial Class Form1
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(36, 131)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(82, 16)
+        Me.Label3.Size = New System.Drawing.Size(84, 16)
         Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Dealer Total"
+        Me.Label3.Text = "Dealer Hand"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(36, 286)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 16)
+        Me.Label4.Size = New System.Drawing.Size(82, 16)
         Me.Label4.TabIndex = 21
-        Me.Label4.Text = "Player Total"
+        Me.Label4.Text = "Player Hand"
         '
         'pTotal
         '
@@ -312,11 +323,115 @@ Partial Class Form1
         Me.p1Card.Size = New System.Drawing.Size(100, 22)
         Me.p1Card.TabIndex = 28
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(36, 327)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(57, 16)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "Balance"
+        '
+        'pBalance
+        '
+        Me.pBalance.Location = New System.Drawing.Point(154, 325)
+        Me.pBalance.Name = "pBalance"
+        Me.pBalance.Size = New System.Drawing.Size(100, 22)
+        Me.pBalance.TabIndex = 39
+        '
+        'pBet50
+        '
+        Me.pBet50.Location = New System.Drawing.Point(463, 365)
+        Me.pBet50.Name = "pBet50"
+        Me.pBet50.Size = New System.Drawing.Size(65, 23)
+        Me.pBet50.TabIndex = 42
+        Me.pBet50.Text = "50"
+        Me.pBet50.UseVisualStyleBackColor = True
+        '
+        'pBet100
+        '
+        Me.pBet100.Location = New System.Drawing.Point(544, 365)
+        Me.pBet100.Name = "pBet100"
+        Me.pBet100.Size = New System.Drawing.Size(64, 23)
+        Me.pBet100.TabIndex = 43
+        Me.pBet100.Text = "100"
+        Me.pBet100.UseVisualStyleBackColor = True
+        '
+        'pBet500
+        '
+        Me.pBet500.Location = New System.Drawing.Point(625, 365)
+        Me.pBet500.Name = "pBet500"
+        Me.pBet500.Size = New System.Drawing.Size(64, 23)
+        Me.pBet500.TabIndex = 44
+        Me.pBet500.Text = "500"
+        Me.pBet500.UseVisualStyleBackColor = True
+        '
+        'pBet1000
+        '
+        Me.pBet1000.Location = New System.Drawing.Point(707, 365)
+        Me.pBet1000.Name = "pBet1000"
+        Me.pBet1000.Size = New System.Drawing.Size(64, 23)
+        Me.pBet1000.TabIndex = 45
+        Me.pBet1000.Text = "1000"
+        Me.pBet1000.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(461, 339)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(27, 16)
+        Me.Label6.TabIndex = 47
+        Me.Label6.Text = "Bet"
+        '
+        'pBet
+        '
+        Me.pBet.Location = New System.Drawing.Point(531, 336)
+        Me.pBet.Name = "pBet"
+        Me.pBet.Size = New System.Drawing.Size(100, 22)
+        Me.pBet.TabIndex = 46
+        '
+        'pResetBet
+        '
+        Me.pResetBet.Location = New System.Drawing.Point(696, 335)
+        Me.pResetBet.Name = "pResetBet"
+        Me.pResetBet.Size = New System.Drawing.Size(75, 23)
+        Me.pResetBet.TabIndex = 48
+        Me.pResetBet.Text = "reset bet"
+        Me.pResetBet.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(460, 311)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(30, 16)
+        Me.Label7.TabIndex = 50
+        Me.Label7.Text = "Win"
+        '
+        'pWin
+        '
+        Me.pWin.Location = New System.Drawing.Point(530, 308)
+        Me.pWin.Name = "pWin"
+        Me.pWin.Size = New System.Drawing.Size(100, 22)
+        Me.pWin.TabIndex = 49
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(801, 452)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.pWin)
+        Me.Controls.Add(Me.pResetBet)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.pBet)
+        Me.Controls.Add(Me.pBet1000)
+        Me.Controls.Add(Me.pBet500)
+        Me.Controls.Add(Me.pBet100)
+        Me.Controls.Add(Me.pBet50)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.pBalance)
         Me.Controls.Add(Me.p6Card)
         Me.Controls.Add(Me.p5Card)
         Me.Controls.Add(Me.p4Card)
@@ -392,4 +507,15 @@ Partial Class Form1
     Friend WithEvents p3Card As TextBox
     Friend WithEvents p2Card As TextBox
     Friend WithEvents p1Card As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents pBalance As TextBox
+    Friend WithEvents pBet50 As Button
+    Friend WithEvents pBet100 As Button
+    Friend WithEvents pBet500 As Button
+    Friend WithEvents pBet1000 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents pBet As TextBox
+    Friend WithEvents pResetBet As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents pWin As TextBox
 End Class
